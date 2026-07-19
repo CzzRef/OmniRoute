@@ -21,8 +21,12 @@ test("publicCreds: grok_id embedded default is present and decodes", () => {
   assert.ok(decoded.length > 0, "grok_id must decode to a non-empty client id");
 });
 
-test("Grok Build OAuth Provider - flowType is import_token", () => {
-  assert.equal(grokCli.flowType, "import_token");
+// #7013: grok-cli now ships a browser PKCE flow alongside the pre-existing
+// paste-token import — the registry flowType flips to PKCE so GET
+// authorize/exchange/poll-callback dispatch correctly; mapTokens still
+// auto-detects and handles pasted-token input (see tests below).
+test("Grok Build OAuth Provider - flowType is authorization_code_pkce (browser login, #7013)", () => {
+  assert.equal(grokCli.flowType, "authorization_code_pkce");
 });
 
 test("Grok Build OAuth Provider - mapTokens from raw JWT", () => {
