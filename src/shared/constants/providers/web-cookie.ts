@@ -297,6 +297,23 @@ export const WEB_COOKIE_PROVIDERS = {
     subscriptionRisk: true,
     riskNoticeVariant: "webCookie",
   },
+  "hailuo-web": {
+    id: "hailuo-web",
+    // Distinct alias: avoid colliding with the existing API-key "minimax"/
+    // "minimax-cn" providers (src/shared/constants/providers/apikey/regional.ts).
+    alias: "hailuo-web",
+    name: "Hailuo Web (MiniMax)",
+    icon: "auto_awesome",
+    color: "#5B21B6",
+    textIcon: "HL",
+    website: "https://hailuo.ai",
+    authHint:
+      "Open hailuo.ai, log in, then open DevTools → Application → Local Storage → copy the " +
+      '"_token" value. device_id/uuid fingerprint fields are derived automatically; if ' +
+      "requests fail, re-capture _token (sessions can expire).",
+    subscriptionRisk: true,
+    riskNoticeVariant: "webCookie",
+  },
   "qwen-web": {
     id: "qwen-web",
     // Primary "qwen" provider keeps the short alias; web variant uses its own id.
